@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { IntlProvider } from 'react-intl';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from './components/Header';
 import Body from './containers/Body';
@@ -26,4 +27,4 @@ const mapStateToProps = state => {
     lang: state.user.lang
   };
 };
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));

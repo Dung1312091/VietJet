@@ -4,6 +4,7 @@ import User from '../../components/User';
 import { login } from './action';
 export class UserProfile extends Component {
   render() {
+    console.log('aa');
     return (
       <div>
         <User {...this.props} />
