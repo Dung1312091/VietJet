@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { IntlProvider } from 'react-intl';
+import { connect } from 'react-redux';
+import Header from './components/Header';
+import Body from './containers/Body';
 import './App.css';
 
 class App extends Component {
   render() {
+    const { location, isAuthenticated, loaded, lang } = this.props;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <IntlProvider locale={lang}>
+        <React.Fragment>
+          <Header />
+          <Body />
+        </React.Fragment>
+      </IntlProvider>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: !!state.user.email,
+    loaded: state.user.loaded,
+    lang: state.user.lang
+  };
+};
+export default connect(mapStateToProps)(App);
