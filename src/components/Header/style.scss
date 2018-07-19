@@ -1,7 +1,13 @@
-.header {
+.headerRight {
     display: flex;
     justify-content: flex-end;
+}
+.header {
     background-color: red;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: fixed;
     top: 0px;
     width: 100%;

@@ -36,6 +36,10 @@
   white-space: pre-wrap;
 }
 
+.content {
+  margin-left: 50px;
+}
+
 ul {
   margin: 0px;
   padding: 0px;
@@ -127,4 +131,28 @@ a:hover {
 
 .headerBoder {
   color: red;
+}
+
+@media screen and (max-width: 480px) {
+  .leftSideBar {
+    height: 100%;
+    width: 0px;
+    background-color: #0d131f;
+    display: flex;
+    position: fixed;
+    top: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 100;
+    -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+  }
+  .colapse {
+    width: 225px;
+  }
+  .content {
+    margin-left: 5px;
+  }
 }

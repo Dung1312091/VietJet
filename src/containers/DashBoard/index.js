@@ -1,32 +1,28 @@
 import React, { Component } from 'react';
-import { Icon } from 'react-fa';
+import { connect } from 'react-redux';
 import Avartar from '../../components/Avartar';
 import LeftSideBar from '../../components/LeftSideBar';
+import { togleLeftSideBar } from '../../components/Header/action';
 import './style.css';
 class DashBoard extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = {
       isCollapse: false,
-      isAnimation: false,
       src: 'https://vegiagoc.com/Upload/images/Vietjets_cabin_crew_on_duty.jpg',
       isMobile: false
     };
   }
   handleCollapse = () => {
-    this.setState(pre => ({
-      isCollapse: !pre.isCollapse,
-      isAnimation: true
-    }));
+    this.props.handleCollapse();
   };
-  handleClose = () => {
-    this.setState({
-      isCollapse: false
-    });
-  };
+  // handleClose = () => {
+  //   this.setState({
+  //     isCollapse: false
+  //   });
+  // };
   render() {
-    const { isCollapse, isAnimation } = this.state;
+    const { isCollapse } = this.props;
     return (
       <div className="wrapper ">
         <div className={`leftSideBar ${isCollapse ? 'colapse' : ''}`}>
@@ -43,28 +39,41 @@ class DashBoard extends Component {
                 </div>
               </div>
             </li>
-            <li className="dashBoard">
+            {/* <li className="dashBoard">
               <div className="routerLink">
                 <Icon name="slack" className="icon" />
                 <span className="menuText">Dashboard</span>
-                {/* <Ink style={{ color: 'black' }} /> */}
+                <Ink style={{ color: 'black' }} />
               </div>
-            </li>
+            </li> */}
             <LeftSideBar />
           </ul>
         </div>
         <div className="rightCnt ">
           <div
-            className={`overlay ${
-              this.state.isCollapse ? 'overlay-transition' : ''
-            }`}
+            className={`overlay ${isCollapse ? 'overlay-transition' : ''}`}
             onClick={this.handleCollapse}
           />
-          <div style={{ marginLeft: 50 }}>{this.props.children}</div>
+          <div className="content">{this.props.children}</div>
         </div>
       </div>
     );
   }
 }
-
-export default DashBoard;
+const mapStateToProps = (state, ownProps) => {
+  console.log(state);
+  return {
+    isCollapse: state.handleCollapse.isCollapse
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    handleCollapse: () => {
+      dispatch(togleLeftSideBar());
+    }
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DashBoard);

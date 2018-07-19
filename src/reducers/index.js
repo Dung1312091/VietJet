@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
+import handleCollapse from '../components/Header/reducer';
 import user from '../containers/UserProfile/reducer';
 export default combineReducers({
-  user: user,
-  test: () => {
-    return {};
-  },
-  router: routerReducer
+  handleCollapse: handleCollapse,
+  router: routerReducer,
+  user
 });

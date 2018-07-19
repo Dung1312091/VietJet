@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import UserProfile from '../../containers/UserProfile';
-import Test from '../../components/Text';
 import DashBoard from '../DashBoard';
 import DashBoardContend from '../../containers/DashBoardContent';
 import Login from '../../components/Login';
+import UserProfile from '../../containers/UserProfile';
 class Body extends Component {
   constructor(props) {
     super(props);
@@ -29,8 +28,8 @@ class Body extends Component {
         {isLogin ? (
           <DashBoard>
             <Switch>
+              <Route exact path="/abc" component={UserProfile} />
               <Route exact path="/" component={DashBoardContend} />
-              <Route exact path="/user" component={UserProfile} />
             </Switch>
           </DashBoard>
         ) : (
