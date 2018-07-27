@@ -1,0 +1,38 @@
+.DayPicker_weekHeader_li {
+    list-style: none;
+    margin: -10px 0 !important;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 14px;
+}
+.CalendarDay__highlighted_calendar {
+    background: #82E0AA;
+    color: #186A3B;
+  }
+  
+  .CalendarDay__highlighted_calendar:hover {
+    background: #58D68D;
+    color: #186A3B;
+  }
+  
+  .CalendarDay__highlighted_calendar:active {
+    background: #58D68D;
+    color: #186A3B;
+  }
+  .DayPickerKeyboardShortcuts_buttonReset {
+      display: none
+  }
+.DayPicker_transitionContainer{
+    min-height: 300px;
+}
+.inputDate {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    border: solid black 1px;
+    align-items: center
+}
+.calendarInfo, .calendar {
+    display: flex;
+    justify-content: space-between
+}

@@ -1,0 +1,14 @@
+.searchFlight {
+  font-size: 0.8vw;
+  border: solid 1px black;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100px;
+}
+
+.searchItem {
+  background-color: red;
+  position: absolute;
+  top: -100px;
+}
