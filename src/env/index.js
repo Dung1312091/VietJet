@@ -3,9 +3,9 @@ import envProd from './production';
 
 let Env;
 
-if (process.env.NODE_ENV == 'development') {
+if (process.env.NODE_ENV === 'development') {
   Env = envDev;
-} else if (process.env.NODE_ENV == 'production') {
+} else if (process.env.NODE_ENV === 'production') {
   Env = envProd;
 }
 

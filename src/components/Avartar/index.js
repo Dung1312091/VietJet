@@ -9,5 +9,4 @@ class Avartar extends PureComponent {
     );
   }
 }
-
 export default Avartar;
